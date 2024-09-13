@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-
+const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -10,6 +10,8 @@ app.use(bodyParser.json());
 // Replace <username>, <password>, and <your-database-name> with your credentials and database name
 const mongoURI = 'mongodb+srv://okokokokok:z1toq6U9iiD3OSVL@cluster0.p43lk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
+app.use(cors());
+app.use(bodyParser.json());
 // Connect to MongoDB Atlas
 mongoose.connect(mongoURI, {
     useNewUrlParser: true,
